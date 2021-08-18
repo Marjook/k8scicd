@@ -1,14 +1,12 @@
 - hosts: localhost
-  tasks:
-  - name: Deploy the service
-    k8s:
-      state: present
-      definition: "{{ lookup('template', 'service.yml') | from_yaml }}"
-      validate_certs: no
-      namespace: default
-  - name: Deploy the application
-    k8s:
-      state: present
-      validate_certs: no
-      namespace: default
-      definition: "{{ lookup('template', 'deployment.yml') | from_yaml }}"
+  become: true
+  
+  vars:    
+    jenkins_hostname: 34.89.244.216
+    java_packages:
+      - openjdk-8-jdk
+  
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.jenkins
+
