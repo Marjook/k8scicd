@@ -20,8 +20,8 @@ pipeline {
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/hello-world'
                 // Build the app.
 		sh 'echo "Files are copied"'
-                sh 'go mod init ${GOPATH}/src/hello-world'
-                sh 'go build'               
+                //sh 'go mod init ${GOPATH}/src/hello-world'
+                sh 'go build -o main .'               
             }     
         }
         stage('Test') {
