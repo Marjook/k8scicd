@@ -18,7 +18,7 @@ pipeline {
                 // Copy all files in our Jenkins workspace to our project directory.                
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/hello-world'
                 // Build the app.
-                sh 'go mod init'
+                sh 'go mod init ${GOPATH}/src/hello-world'
                 sh 'go build'               
             }     
         }
