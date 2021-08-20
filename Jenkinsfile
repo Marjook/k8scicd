@@ -20,7 +20,7 @@ pipeline {
                 sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/hello-world'
                 // Build the app.
 		//sh 'echo "Files are copied"'
-		sh 'go mod init ${GOPATH}/src'
+		sh 'go mod init /var/lib/jenkins/workspace/hello-world@2'
                 sh 'go build '               
             }     
         }
