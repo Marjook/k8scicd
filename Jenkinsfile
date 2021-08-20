@@ -44,7 +44,7 @@ pipeline {
         }
         stage('Publish') {
             environment {
-                registryCredential = 'dockerhub'
+                registryCredential = 'marjook'
             }
             steps{
                 script {
